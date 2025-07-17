@@ -1,0 +1,58 @@
+[
+  {
+    "currency": "USD",
+    "decimals": 0.99,
+    "regular_amount": 119.99,
+    "free_shipping": true,
+    "installments": "12 cuotas",
+    "condition": "nuevo",
+     "sold_quantity": 124,
+    "attributes": [
+      {
+        "id": "MAIN_COLOR",
+        "name": "Color",
+        "value_name": "Rojo"
+      },
+      {
+        "id": "MATERIAL",
+        "name": "Material",
+        "value_name": "Cuero"
+      }
+    ],
+    "category_path_from_root": ["Tecnología", "Accesorios", "Fundas"]
+  },
+  {
+    "currency": "USD",
+    "decimals": 0.75,
+    "regular_amount": 89.5,
+    "free_shipping": false,
+    "installments": "6 cuotas",
+    "condition": "usado",
+     "sold_quantity": 12,
+    "attributes": [
+      {
+        "id": "MAIN_COLOR",
+        "name": "Color",
+        "value_name": "Negro"
+      }
+    ],
+    "category_path_from_root": ["Moda", "Zapatos"]
+  },
+  {
+    "currency": "USD",
+    "decimals": 0.5,
+    "regular_amount": 129.0,
+    "free_shipping": true,
+    "installments": "3 cuotas",
+    "condition": "reacondicionado",
+     "sold_quantity": 12,
+    "attributes": [
+      {
+        "id": "MAIN_COLOR",
+        "name": "Color",
+        "value_name": "Gris"
+      }
+    ],
+    "category_path_from_root": ["Moda", "Zapatos"]
+  }
+]

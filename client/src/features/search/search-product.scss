@@ -1,0 +1,10 @@
+.search-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 40px;
+
+  @media (max-width: 768px) {
+    padding-right: 16px;
+  }
+}
