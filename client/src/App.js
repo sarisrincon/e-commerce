@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ListProduct from "./features/productList/ListProduct";
-import SearchProduct from "./features/search/SearchProduct";
-import ProductDetail from "./features/productDetail/ProductDetail";
+import ListProduct from "./components/productList/ListProduct";
+import SearchProduct from "./components/search/SearchProduct";
+import ProductDetail from "./components/productDetail/ProductDetail";
 
 function App() {
   return (

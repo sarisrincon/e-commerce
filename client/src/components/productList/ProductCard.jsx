@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './list-product.scss';
 
-const ProductCard = ({ item }) => {
+const ProductCard = ({ item, query }) => {
   const {
     id,
     title,
@@ -16,8 +16,8 @@ const ProductCard = ({ item }) => {
 
   return (
     <li className="product-card">
-      <Link to={`/items/${id}`} className="product-card__link">
-        <img src={picture} alt={title} className="product-card__image" />
+      <Link to={`/items/${id}`}   state={{ fromQuery: query }} className="product-card__link">
+        <img src={picture} alt={`Imagen del producto ${title}`} className="product-card__image" />
         <div className="product-card__info">
           <h2 className="product-card__title">{title}</h2>
           <p className="product-card__category">{category}</p>

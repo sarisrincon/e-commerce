@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import WelcomeBanner from '../../shared/components/WelcomeBanner';
-import SearchBar from '../../shared/components/SearchBar';
+import WelcomeBanner from '../../shared/components/welcomeBanner/WelcomeBanner';
+import SearchBar from '../../shared/components/searchBar/SearchBar';
 
 const SearchProduct = () => {
   const [showWelcome, setShowWelcome] = useState(false);

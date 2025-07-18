@@ -1,0 +1,38 @@
+.product-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    font-family: 'Proxima Nova', sans-serif;
+
+    &__left-inline {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .separator {
+        color: rgba(0, 0, 0, 0.4);
+    }
+
+    .back-link {
+        font-size: 14px;
+        color: #3483fa;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .breadcrumb {
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.55);
+    }
+
+    &__right {
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.45);
+        font-family: 'Proxima Nova', sans-serif;
+    }
+}

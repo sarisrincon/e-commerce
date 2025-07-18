@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import logo from '../../assets/logo.png';
-import searchIcon from '../../assets/iconSearch.png';
+import logo from '../../../assets/logo.png';
+import searchIcon from '../../../assets/iconSearch.png';
 import './search-bar.scss';
 
 const SearchBar = () => {
@@ -29,6 +29,7 @@ const SearchBar = () => {
             value={term}
             onChange={(e) => setTerm(e.target.value)}
           />
+          <div className="search-bar__divider" />
           <button type="submit" className="search-bar__button">
             <img src={searchIcon} alt="Buscar" className="search-bar__icon" />
           </button>
