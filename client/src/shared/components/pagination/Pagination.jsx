@@ -7,6 +7,14 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => {
 
   return (
     <div className="pagination">
+      {currentPage >= totalPages && (
+        <button
+          onClick={() => onPageChange(currentPage - 1)}
+          className="pagination__button"
+        >
+          ‹ Anterior
+        </button>
+      )}
       {Array.from({ length: totalPages }, (_, i) => (
         <button
           key={i + 1}
@@ -16,6 +24,15 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => {
           {i + 1}
         </button>
       ))}
+      {currentPage < totalPages && (
+        <button
+          onClick={() => onPageChange(currentPage + 1)}
+          className="pagination__button"
+        >
+          Siguiente ›
+        </button>
+      )}
+
     </div>
   );
 };

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import ProductCard from './ProductCard';
+import ProductCard from './sections/ProductCard';
 import SearchBar from '../../shared/components/searchBar/SearchBar';
 import useProductSearch from '../../hooks/useProductSearch';
-import './list-product.scss';
+import './product-list.scss';
 import Pagination from '../../shared/components/pagination/Pagination';
+import '../../shared/styles/skeleton-card.scss';
 
-const ListProduct = () => {
+const ProductList = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get('search') || '';
 
@@ -32,16 +33,21 @@ const ListProduct = () => {
   return (
     <div className="products-page">
       <SearchBar />
-
       <div className="products">
-        {loading && <p className="products__loading">Cargando productos...</p>}
-        {error && <p className="products__error">{error}</p>}
-
-        <ul className="products__list">
-          {paginatedItems.map((item) => (
-            <ProductCard key={item.id} item={item} query={query} />
-          ))}
-        </ul>
+        {loading ? (
+          <div className="products__skeleton">
+            {[...Array(8)].map((_, index) => (
+              <div key={index} className="skeleton-card" />
+            ))}
+          </div>
+        ) : (
+          <ul className="products__list">
+            {paginatedItems.map((item) => (
+              <ProductCard key={item.id} item={item} query={query} />
+            ))}
+          </ul>
+        )}
+        {error && <p>{error}</p>}
         <Pagination
           totalPages={totalPages}
           currentPage={currentPage}
@@ -52,4 +58,4 @@ const ListProduct = () => {
   );
 };
 
-export default ListProduct;
+export default ProductList;

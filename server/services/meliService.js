@@ -54,6 +54,7 @@ const fetchItemDetails = async (id) => {
     item: {
       id: data.id,
       title: data.title,
+      category: data.category,
       price: {
         currency: mock.currency,
         amount: price.amount,

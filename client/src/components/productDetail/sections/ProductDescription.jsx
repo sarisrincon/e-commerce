@@ -4,7 +4,7 @@ import './product-description.scss';
 const ProductDescription = ({ description }) => {
   return (
     <div className="product-description">
-      <h2>Descripción del producto</h2>
+      <h2>Descripción</h2>
       <p>{description}</p>
     </div>
   );

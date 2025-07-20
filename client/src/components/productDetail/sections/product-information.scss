@@ -1,51 +1,131 @@
 .product-information {
   display: flex;
   flex-direction: column;
-  gap: 16px;
   font-family: 'Proxima Nova', sans-serif;
+  gap: 28px;
 
   &__condition {
-    font-size: 14px;
-    color: rgba(0, 0, 0, 0.55);
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.9);
+    margin-top: 28px;
+    margin-bottom: 0;
+  }
+
+  &__heading,
+  &__price {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
   &__title {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 600;
     color: rgba(0, 0, 0, 0.9);
     margin: 0;
   }
 
-  &__price {
+  &__category {
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.55);
+    margin: 0;
+  }
+
+  &__price-amount {
     font-size: 36px;
-    font-weight: 500;
-    color: #333;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.9);
     margin: 0;
   }
 
-  &__installments,
-  &__shipping {
-    font-size: 16px;
+  &__installments {
+    font-size: 18px;
+    font-weight: 300;
     color: #00a650;
-  }
-
-  &__attributes p {
-    font-size: 14px;
     margin: 0;
-    color: #333;
   }
 
-  &__description {
-    margin-top: 32px;
+  &__shipping {
+    font-size: 18px;
+    font-weight: 600;
+    color: #00a650;
+    margin: 0;
+  }
 
-    h2 {
-      font-size: 22px;
-      margin-bottom: 8px;
+  &__attributes {
+    p {
+      font-size: 18px;
+      margin: 0;
+      color: rgba(0, 0, 0, 0.9);
+
+      .product-information__attr-name {
+        font-weight: 300;
+      }
+
+      .product-information__attr-value {
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .product-information {
+    gap: 20px;
+
+    &__title {
+      font-size: 20px;
     }
 
-    p {
+    &__category {
       font-size: 16px;
-      color: #333;
+    }
+
+    &__price-amount {
+      font-size: 30px;
+    }
+
+    &__installments,
+    &__shipping {
+      font-size: 16px;
+    }
+
+    &__attributes p {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .product-information {
+    gap: 16px;
+
+    &__title {
+      font-size: 18px;
+    }
+
+    &__category {
+      font-size: 14px;
+    }
+
+    &__price-amount {
+      font-size: 26px;
+    }
+
+    &__installments,
+    &__shipping {
+      font-size: 14px;
+    }
+
+    &__attributes p {
+      font-size: 14px;
+    }
+
+    &__condition {
+      font-size: 14px;
+      margin-top: 20px;
     }
   }
 }

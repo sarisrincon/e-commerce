@@ -6,12 +6,12 @@ const ProductDetailHeader = ({ categoryPath, productId, fromQuery }) => {
     return (
         <div className="product-detail-header">
             <div className="product-detail-header__left-inline">
-                <Link to={`/api/items?search=${fromQuery || ''}`} className="back-link">
+                <Link to={`/items?search=${fromQuery || ''}`} className="product-detail-header__back-link">
                     Volver al listado
                 </Link>
-                <span className="separator">|</span>
+                <span className="product-detail-header__separator">|</span>
                 {Array.isArray(categoryPath) && (
-                    <nav className="breadcrumb">
+                    <nav className="product-detail-header__breadcrumb">
                         {categoryPath.map((cat, index, arr) => (
                             <span key={index}>
                                 {cat}
@@ -22,8 +22,10 @@ const ProductDetailHeader = ({ categoryPath, productId, fromQuery }) => {
                 )}
             </div>
             <div className="product-detail-header__right">
-                <span className="product-id">Publicación: #{productId}</span>
+                <span className="product-id__label">Publicación:</span>
+                <span className="product-id__number">#{productId}</span>
             </div>
+
         </div>
     );
 };

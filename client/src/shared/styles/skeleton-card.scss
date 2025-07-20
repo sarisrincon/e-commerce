@@ -1,0 +1,42 @@
+.products__skeleton {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skeleton-card {
+  background-color: #fff;
+  margin: 2px;
+  padding: 12px 12px 30px 12px;
+  height: 250px;
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite ease-in-out;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #eeeeee;
+  }
+  50% {
+    background-color: #e0e0e0;
+  }
+  100% {
+    background-color: #eeeeee;
+  }
+}
+
+@media (max-width: 480px) {
+  .products__skeleton {
+    padding: 12px;
+  }
+
+  .skeleton-card {
+    height: 200px;
+  }
+}

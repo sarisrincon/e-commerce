@@ -6,10 +6,10 @@
 
   &__container {
     display: flex;
+    position: relative;
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    padding: 0 16px;
     box-sizing: border-box;
   }
 
@@ -26,7 +26,7 @@
     flex: 1;
     display: flex;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 3px;
     overflow: hidden;
     min-width: 0;
   }
@@ -66,25 +66,64 @@
   }
 }
 
-  @media (max-width: 900px) {
-    .search-bar {
+@media (max-width: 900px) {
+  .search-bar {
     &__container {
       max-width: 100%;
       padding: 0 8px;
     }
+
     &__logo {
       max-height: 36px;
       margin-right: 16px;
     }
+
     &__input {
       font-size: 15px;
       padding: 10px 12px;
     }
+
     &__button {
       padding: 0 10px;
     }
+
     &__divider {
       height: 28px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .search-bar {
+    &__container {
+      padding: 0 4px;
+    }
+
+    &__form {
+      border-radius: 6px;
+    }
+
+    &__logo {
+      max-height: 32px;
+      margin-right: 8px;
+    }
+
+    &__input {
+      font-size: 14px;
+      padding: 8px 8px;
+      min-width: 0;
+      max-width: 180px;
+      flex: 1 1 0;
+    }
+
+    &__button {
+      padding: 0 8px;
+      flex-shrink: 0;
+      min-width: 40px;
+    }
+
+    &__divider {
+      height: 22px;
     }
   }
 }
