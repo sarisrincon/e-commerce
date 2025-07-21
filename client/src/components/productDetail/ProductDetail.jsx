@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { fetchProductDetail } from '../../api/products';
 import './product-detail.scss';
 import SearchBar from '../../shared/components/searchBar/SearchBar';
 import ProductDetailHeader from './sections/ProductDetailHeader';
 import ProductMediaGallery from './sections/ProductMediaGallery';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import ProductInformation from './sections/ProductInformation';
 import ProductDescription from './sections/ProductDescription';
 
@@ -62,3 +61,5 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
+
+

@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import SearchProduct from './SearchProduct';
 
-// Mocks
 jest.mock('../../shared/components/searchBar/SearchBar', () => () => <div data-testid="search-bar" />);
 jest.mock('../../shared/components/welcomeBanner/WelcomeBanner', () => ({ onClose }) => (
   <div data-testid="welcome-banner">
