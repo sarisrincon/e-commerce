@@ -1,16 +1,17 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom' //aprender sobre esto
-import ListProduct from "./screens/ListProducts";
-import ProductDetail from "./screens/ProductDetail";
-import SearchProduct from "./screens/SearchProduct";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ProductList from "./components/productList/ProductList";
+import SearchProduct from "./components/search/SearchProduct";
+import ProductDetail from "./components/productDetail/ProductDetail";
+
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route exact path='/' component={SearchProduct}/>
-        <Route exatc path='/items?search=' component={ListProduct}/>
-        <Route exact path='/items/:id' component={ProductDetail}/>
-      </Switch>
+      <Routes>
+        <Route path='/' element={<SearchProduct />} />
+        <Route path='/items' element={<ProductList />} />
+        <Route path='/items/:id' element={<ProductDetail />} />
+      </Routes>
     </Router>
   );
 }

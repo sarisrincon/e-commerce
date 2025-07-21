@@ -1,4 +1,9 @@
 const axios = require('axios');
+const mockData = require('../data/mock.json');
+const getRandomMock = () => {
+  const index = Math.floor(Math.random() * mockData.length);
+  return mockData[index];
+};
 
 const formatPrice = (price) => {
   return {
@@ -9,74 +14,61 @@ const formatPrice = (price) => {
 
 
 const fetchItems = async (query, offset = 0) => {
-  const { data } = await axios.get('https://api.mercadolibre.com/sites/MLA/search', {
-    params: { q: query, offset },
-  });
+  const { data } = await axios.get('https://fakestoreapi.com/products');
+  const filtered = data.filter(item =>
+    item.title.toLowerCase().includes(query.toLowerCase())
+  );
 
-  const categories = data.filters?.[0]?.values?.[0]?.path_from_root?.map(cat => cat.name) || [];
-
-  const items = data.results.map(item => {
+  const paginated = filtered.slice(Number(offset), Number(offset) + 10);
+  const items = paginated.map(item => {
+    const mock = getRandomMock();
     const price = formatPrice(item.price);
+
     return {
       id: item.id,
       title: item.title,
       price: {
-        currency: item.currency_id,
+        currency: mock.currency,
         amount: price.amount,
-        decimals: price.decimals,
-        regular_amount: item.original_price || null,
+        decimals: mock.decimals,
+        regular_amount: mock.regular_amount
       },
-      picture: item.thumbnail,
-      condition: item.condition,
-      free_shipping: item.shipping.free_shipping,
-      installments: item.installments?.quantity
-        ? `${item.installments.quantity} cuotas`
-        : null,
+      picture: item.image,
+      condition: mock.condition,
+      category: item.category,
+      free_shipping: mock.free_shipping,
+      installments: mock.installments
     };
   });
 
-  return { categories, items };
+  return { items };
 };
 
 
 const fetchItemDetails = async (id) => {
-  const [itemRes, descRes] = await Promise.all([
-    axios.get(`https://api.mercadolibre.com/items/${id}`),
-    axios.get(`https://api.mercadolibre.com/items/${id}/description`)
-  ]);
-
-  const item = itemRes.data;
-  const description = descRes.data.plain_text;
-
-  const categoryRes = await axios.get(`https://api.mercadolibre.com/categories/${item.category_id}`);
-  const category_path_from_root = categoryRes.data.path_from_root.map(cat => cat.name);
-
-  const price = formatPrice(item.price);
+  const { data } = await axios.get(`https://fakestoreapi.com/products/${id}`);
+  const mock = getRandomMock();
+  const price = formatPrice(data.price);
 
   return {
     item: {
-      id: item.id,
-      title: item.title,
+      id: data.id,
+      title: data.title,
+      category: data.category,
       price: {
-        currency: item.currency_id,
+        currency: mock.currency,
         amount: price.amount,
-        decimals: price.decimals,
-        regular_amount: item.original_price || null,
+        decimals: mock.decimals,
+        regular_amount: mock.regular_amount
       },
-      pictures: item.pictures.map(pic => pic.secure_url),
-      condition: item.condition,
-      free_shipping: item.shipping.free_shipping,
-      sold_quantity: item.sold_quantity,
-      installments: item.installments?.quantity
-        ? `${item.installments.quantity} cuotas`
-        : null,
-      description,
-      attributes: item.attributes.map(attr => ({
-        id: attr.id,
-        name: attr.name,
-        value_name: attr.value_name
-      })),
-      category_path_from_root,
+      pictures: [data.image],
+      condition: mock.condition,
+      free_shipping: mock.free_shipping,
+      sold_quantity: mock.sold_quantity,
+      installments: mock.installments,
+      description: data.description,
+      attributes: mock.attributes,
+      category_path_from_root: mock.category_path_from_root
     }
   };
 };
