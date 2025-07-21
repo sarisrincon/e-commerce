@@ -9,10 +9,10 @@ app.use(express.json());
 app.use('/api', itemsRoutes);
 
 app.get('/api/test', (req, res) => {
-  res.json({ message: '¡El servidor funciona!' });
+  res.json({ message: 'Server running' });
 });
 
 const PORT = 3001;
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`Servidor running on http://localhost:${PORT}`);
 });

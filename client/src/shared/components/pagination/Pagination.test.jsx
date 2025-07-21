@@ -3,12 +3,12 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import Pagination from './Pagination';
 import { MemoryRouter } from 'react-router-dom';
 describe('Pagination', () => {
-  it('no renderiza nada si totalPages es 1 o menos', () => {
+  it('Does not render anything if totalPages is 1 or less', () => {
     render(<Pagination totalPages={1} currentPage={1} onPageChange={() => {}} />);
     expect(screen.queryAllByRole('button')).toHaveLength(0);
   });
 
-  it('renderiza el número correcto de botones', () => {
+  it('Renders the correct number of buttons', () => {
     render(
       <MemoryRouter>
         <Pagination totalPages={3} currentPage={1} onPageChange={() => { }} />
@@ -22,13 +22,13 @@ describe('Pagination', () => {
     expect(screen.getByText('Siguiente ›')).toBeInTheDocument();
   });
 
-  it('resalta el botón de la página actual', () => {
+  it('Highlights the current page button', () => {
     render(<Pagination totalPages={3} currentPage={2} onPageChange={() => {}} />);
     const activeButton = screen.getByText('2');
     expect(activeButton).toHaveClass('active');
   });
 
-  it('llama a onPageChange con el número correcto', () => {
+  it('Calls onPageChange with the correct number', () => {
     const onPageChange = jest.fn();
     render(<Pagination totalPages={3} currentPage={1} onPageChange={onPageChange} />);
     fireEvent.click(screen.getByText('2'));

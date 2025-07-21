@@ -25,7 +25,6 @@ const ProductDetailHeader = ({ categoryPath, productId, fromQuery }) => {
                 <span className="product-id__label">Publicación:</span>
                 <span className="product-id__number">#{productId}</span>
             </div>
-
         </div>
     );
 };

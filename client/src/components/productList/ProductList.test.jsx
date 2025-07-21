@@ -7,7 +7,7 @@ import * as reactRouterDom from 'react-router-dom';
 import { MemoryRouter } from 'react-router-dom';
 
 
-describe('Subcomponentes de ProductList', () => {
+describe('Subcomponents of ProductList', () => {
     const mockItem = {
         id: '1',
         title: 'Camiseta',
@@ -24,7 +24,7 @@ describe('Subcomponentes de ProductList', () => {
         installments: '6x $100'
     };
 
-    it('ProductCard renderiza el título y el precio', () => {
+    it('ProductCard renders the title and price', () => {
         render(
             <MemoryRouter>
                 <ProductCard item={mockItem} query="notebook" />
@@ -34,14 +34,14 @@ describe('Subcomponentes de ProductList', () => {
         expect(screen.getByText(/500/)).toBeInTheDocument();
     });
 
-    it('Pagination muestra el número de página actual', () => {
+    it('Pagination displays the current page number', () => {
         render(
             <Pagination totalPages={3} currentPage={2} onPageChange={() => { }} />
         );
         expect(screen.getByText('2')).toBeInTheDocument();
     });
 
-    it('SearchBar renderiza el input de búsqueda', () => {
+    it('SearchBar renders the search input', () => {
         jest.spyOn(reactRouterDom, 'useLocation').mockReturnValue({ search: '' });
         render(
             <MemoryRouter>

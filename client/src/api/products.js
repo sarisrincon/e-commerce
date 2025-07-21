@@ -2,7 +2,7 @@ import axios from 'axios';
 
 /**
  * Fetches product list from backend
- * @param {string} query - Search term  //ESTO ERREGLARLO
+ * @param {string} query - Search term
  * @returns {Promise<object>} - API response
  */
 export const fetchProducts = async (query, offset = 0) => {

@@ -7,7 +7,7 @@ import ProductMediaGallery from './sections/ProductMediaGallery';
 import ProductInformation from './sections/ProductInformation';
 import ProductDescription from './sections/ProductDescription';
 
-describe('Subcomponentes de ProductDetail', () => {
+describe('Subcomponents of ProductDetail', () => {
   const mockProduct = {
   id: '123',
   title: 'Test Product',
@@ -23,7 +23,7 @@ describe('Subcomponentes de ProductDetail', () => {
   installments: '12x $100'
   };
 
-  it('ProductDetailHeader renderiza correctamente', () => {
+  it('ProductDetailHeader renders correctly', () => {
     render(
       <MemoryRouter>
         <ProductDetailHeader
@@ -37,7 +37,7 @@ describe('Subcomponentes de ProductDetail', () => {
     expect(screen.getByText(/Cat2/)).toBeInTheDocument();
   });
 
-  it('ProductMediaGallery renderiza la imagen y el título', () => {
+  it('ProductMediaGallery renders the image and title', () => {
     render(
       <ProductMediaGallery
         picture={mockProduct.pictures[0]}
@@ -47,12 +47,12 @@ describe('Subcomponentes de ProductDetail', () => {
     expect(screen.getByAltText('Test Product')).toBeInTheDocument();
   });
 
-  it('ProductInformation renderiza la información del producto', () => {
+  it('ProductInformation renders the product information', () => {
     render(<ProductInformation product={mockProduct} />);
     expect(screen.getByText('Test Product')).toBeInTheDocument();
   });
 
-  it('ProductDescription renderiza la descripción', () => {
+  it('ProductDescription renders the description', () => {
     render(<ProductDescription description={mockProduct.description} />);
     expect(screen.getByText('Test description')).toBeInTheDocument();
   });

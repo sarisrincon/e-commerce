@@ -4,7 +4,7 @@ import WelcomeBanner from './WelcomeBanner';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('WelcomeBanner', () => {
-  it('muestra el texto de bienvenida', () => {
+  it('Displays the welcome message', () => {
     render(
       <MemoryRouter>
         <WelcomeBanner onClose={() => { }} />
@@ -13,7 +13,7 @@ describe('WelcomeBanner', () => {
     expect(screen.getByText(/Para realizar búsquedas/i)).toBeInTheDocument();
   });
 
-  it('llama a onClose al hacer clic en el botón de cerrar', () => {
+  it('Calls onClose when the close button is clicked', () => {
     const onClose = jest.fn();
     render(
       <MemoryRouter>

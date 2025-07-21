@@ -15,18 +15,18 @@ describe('SearchProduct', () => {
     localStorage.clear();
   });
 
-  it('muestra el banner de bienvenida si es la primera visita', () => {
+  it('Displays the welcome banner on first visit', () => {
     render(<SearchProduct />);
     expect(screen.getByTestId('welcome-banner')).toBeInTheDocument();
   });
 
-  it('no muestra el banner si ya se visitó antes', () => {
+  it('Does not display the banner if already visited', () => {
     localStorage.setItem('hasVisited', 'true');
     render(<SearchProduct />);
     expect(screen.queryByTestId('welcome-banner')).not.toBeInTheDocument();
   });
 
-  it('oculta el banner al hacer clic en cerrar', () => {
+  it('Hides the banner when close is clicked', () => {
     render(<SearchProduct />);
     fireEvent.click(screen.getByText('Cerrar'));
     expect(screen.queryByTestId('welcome-banner')).not.toBeInTheDocument();
